@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BeerService.Application.DTO\BeerService.Application.DTO.csproj" />
+    <ProjectReference Include="..\BeerService.Domain\BeerService.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

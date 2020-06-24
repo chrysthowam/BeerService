@@ -61,7 +61,7 @@ namespace BeerService.IoC
 
         private static void InstallEvents(this IServiceCollection services)
         {
-            services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
+            services.AddScoped<INotificationHandler<Notification>, NotificationHandler>();
         }
 
         private static void InstallCommands(this IServiceCollection services)

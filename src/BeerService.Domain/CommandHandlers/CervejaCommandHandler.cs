@@ -14,7 +14,7 @@ namespace BeerService.Domain.CommandHandlers
         IRequestHandler<ExcluirCervejaCommand, bool>
     {
         public CervejaCommandHandler(IUnitOfWork unitOfWork, IMediatorHandler bus,
-            INotificationHandler<DomainNotification> notifications)
+            INotificationHandler<Notification> notifications)
             : base(unitOfWork, bus, notifications) { }
 
         public async Task<bool> Handle(CadastrarCervejaCommand command, CancellationToken cancellationToken)

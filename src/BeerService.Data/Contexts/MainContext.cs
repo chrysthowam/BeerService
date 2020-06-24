@@ -7,6 +7,5 @@ namespace BeerService.Data.Contexts
     {
         public MainContext(DbContextOptions<MainContext> options) : base(options) { }
         public DbSet<Cerveja> Cervejas { get; set; }
-        public DbSet<Imagem> Imagens { get; set; }
     }
 }

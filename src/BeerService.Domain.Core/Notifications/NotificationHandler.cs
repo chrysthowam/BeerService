@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace BeerService.Domain.Core.Notifications
 {
-    public class DomainNotificationHandler : INotificationHandler<DomainNotification>
+    public class NotificationHandler : INotificationHandler<Notification>
     {
-        private List<DomainNotification> _notifications;
+        private List<Notification> _notifications;
 
-        public DomainNotificationHandler()
+        public NotificationHandler()
         {
-            _notifications = new List<DomainNotification>();
+            _notifications = new List<Notification>();
         }
 
-        public Task Handle(DomainNotification message, CancellationToken cancellationToken)
+        public Task Handle(Notification message, CancellationToken cancellationToken)
         {
             _notifications.Add(message);
 
             return Task.CompletedTask;
         }
 
-        public virtual List<DomainNotification> GetNotifications()
+        public virtual List<Notification> GetNotifications()
         {
             return _notifications;
         }
@@ -34,7 +34,7 @@ namespace BeerService.Domain.Core.Notifications
 
         public void Dispose()
         {
-            _notifications = new List<DomainNotification>();
+            _notifications = new List<Notification>();
         }
     }
 }

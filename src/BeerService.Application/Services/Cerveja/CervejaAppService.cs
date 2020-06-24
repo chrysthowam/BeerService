@@ -8,7 +8,8 @@ using BeerService.Domain.Core.Notifications;
 using BeerService.Domain.Entities;
 using BeerService.Domain.Interfaces.UnitOfWork;
 using MediatR;
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BeerService.Application.Services
@@ -18,7 +19,7 @@ namespace BeerService.Application.Services
         private readonly IMapper _mapper;
 
         public CervejaAppService(IUnitOfWork unitOfWork, IMediatorHandler bus, 
-            INotificationHandler<DomainNotification> notifications, IMapper mapper) 
+            INotificationHandler<Notification> notifications, IMapper mapper) 
             : base(unitOfWork, bus, notifications)
         {
             _mapper = mapper;
@@ -55,14 +56,20 @@ namespace BeerService.Application.Services
             var cerveja = _mapper.Map<CervejaModel>(UnitOfWork.CervejaRepository.GetById(dto.Id));
 
             if (cerveja == null)
-                Bus.RaiseEvent(new DomainNotification("Search", "Nenhum registro localizado para os filtros informados!"));
+                Bus.RaiseEvent(new Notification("Search", "Nenhum registro localizado para os filtros informados!"));
 
             return new ConsultarCervejaDTO.Retorno() { Cerveja = cerveja };
         }
 
         public ListarCervejasDTO.Retorno ListarCervejas(ListarCervejasDTO.Envio dto)
         {
-            throw new NotImplementedException();
+            var cervejas = _mapper.Map<List<CervejaModel>>(
+                UnitOfWork.CervejaRepository.GetListAll().ToList());
+
+            if (cervejas == null)
+                Bus.RaiseEvent(new Notification("Search", "Nenhum registro localizado para os filtros informados!"));
+
+            return new ListarCervejasDTO.Retorno() { Cervejas = cervejas };
         }
     }
 }

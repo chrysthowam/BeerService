@@ -39,8 +39,34 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\cerveja\cadastro-cerveja\cadastro-cerveja.component.ts" />
+    <None Remove="ClientApp\src\app\cerveja\cerveja.service.ts" />
+    <None Remove="ClientApp\src\app\cerveja\cerveja.ts" />
+    <None Remove="ClientApp\src\app\cerveja\edicao-cerveja\edicao-cerveja.component.ts" />
+    <None Remove="ClientApp\src\app\cerveja\errors.ts" />
+    <None Remove="ClientApp\src\app\cerveja\result-listar-cerveja.ts" />
+    <None Remove="ClientApp\src\app\cerveja\retorno-consultar-cerveja.ts" />
+    <None Remove="ClientApp\src\app\cerveja\retorno-listar-cerveja.ts" />
+    <None Remove="ClientApp\src\app\cerveja\retorno.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BeerService.Data\BeerService.Data.csproj" />
     <ProjectReference Include="..\BeerService.IoC\BeerService.IoC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\cadastro-cerveja\cadastro-cerveja.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\cerveja.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\cerveja.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\edicao-cerveja\edicao-cerveja.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\errors.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\result-listar-cerveja.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\retorno-consultar-cerveja.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\retorno.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cerveja\retorno-listar-cerveja.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
@@ -70,5 +96,7 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

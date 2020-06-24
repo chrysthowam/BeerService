@@ -1,0 +1,74 @@
+<h3>Cadastrar Cerveja</h3>
+
+<nz-divider></nz-divider>
+
+<div [ngClass]="alertBox" role="alert" *ngFor="let mensagem of mensagensBusiness">{{ mensagem }}</div>
+
+
+<form id="formCadastro">
+  <div class="form-group">
+
+    <nz-form-label nzRequired>E-mail</nz-form-label>
+    <input type="text" class="form-control" id="nomeCerveja" name="nome" [(ngModel)]="nome">
+    <div [ngClass]="alertBox" role="alert" *ngFor="let mensagem of mensagensNome">{{ mensagem }}</div>
+
+    <div style="margin:25px 0;"></div>
+
+    <nz-form-label nzRequired>Descrição</nz-form-label>
+    <textarea rows="4" nz-input [(ngModel)]="descricao" name="descricao" id="descricaoCerveja"></textarea>
+    <div [ngClass]="alertBox" role="alert" *ngFor="let mensagem of mensagensDescricao">{{ mensagem }}</div>
+
+    <nz-form-label nzRequired>Harmonização</nz-form-label>
+    <textarea rows="4" nz-input [(ngModel)]="harmonizacao" name="harmonizacao" id="harmonizacaoCerveja"></textarea>
+    <div [ngClass]="alertBox" role="alert" *ngFor="let mensagem of mensagensHarmonizacao">{{ mensagem }}</div>
+
+    <div style="margin:25px 0;"></div>
+
+    <nz-form-label nzRequired>Ingredientes</nz-form-label>
+    <input type="text" class="form-control" id="ingredientesCerveja" name="ingredientes" [(ngModel)]="ingredientes">
+    <div [ngClass]="alertBox" role="alert" *ngFor="let mensagem of mensagensIngredientes">{{ mensagem }}</div>
+
+    <div style="margin:25px 0;"></div>
+
+    <div nz-row>
+      <div nz-col nzSpan="11">
+        <nz-form-label nzRequired>Categoria</nz-form-label>
+        <input type="text" class="form-control" id="categoriaCerveja" name="categoria" [(ngModel)]="categoria">
+        <div [ngClass]="alertBox" role="alert" *ngFor="let mensagem of mensagensCategoria">{{ mensagem }}</div>
+      </div>
+      <div nz-col nzSpan="2"></div>
+      <div nz-col nzSpan="11">
+        <nz-form-label nzRequired>Cor</nz-form-label>
+        <input type="text" class="form-control" id="corCerveja" name="cor" [(ngModel)]="cor">
+        <div [ngClass]="alertBox" role="alert" *ngFor="let mensagem of mensagensCor">{{ mensagem }}</div>
+      </div>
+    </div>
+
+    <div style="margin:25px 0;"></div>
+
+    <div nz-row>
+      <div nz-col nzSpan="8">
+        <nz-form-label nzRequired>Tero Alcoolico</nz-form-label>
+        <input type="number" class="form-control" id="teorAlcoolicoCerveja" name="teorAlcoolico" [(ngModel)]="teorAlcoolico">
+      </div>
+      <div nz-col nzSpan="1"></div>
+      <div nz-col nzSpan="7">
+        <nz-form-label nzRequired>Temperatura Inicial</nz-form-label>
+        <input type="number" class="form-control" id="temperaturaInicialCerveja" name="temperaturaInicial" [(ngModel)]="temperaturaInicial">
+      </div>
+      <div nz-col nzSpan="1"></div>
+      <div nz-col nzSpan="7">
+        <nz-form-label nzRequired>Temperatura Final</nz-form-label>
+        <input type="number" class="form-control" id="temperaturaFinalCerveja" name="temperaturaFinal" [(ngModel)]="temperaturaFinal">
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin:25px 0;"></div>
+
+  <button type="submit" class="btn btn-primary" (click)="cadastrarCerveja()">Confirmar</button>
+
+  <div style="margin:50px 0;"></div>
+
+</form>

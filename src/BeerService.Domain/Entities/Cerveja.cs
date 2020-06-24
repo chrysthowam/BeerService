@@ -15,7 +15,7 @@ namespace BeerService.Domain.Entities
         public decimal TeorAlcoolico { get; set; }
         public decimal TemperaturaInicial { get; set; }
         public decimal TemperaturaFinal { get; set; }
-        public virtual ICollection<Imagem> Imagens { get; set; }
+        public string Imagem { get; set; }
 
         internal void Editar(string nome, string descricao, string harmonizacao, string cor, 
             string categoria, string ingredientes, decimal teorAlcoolico, 

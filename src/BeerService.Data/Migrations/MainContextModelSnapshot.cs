@@ -37,6 +37,9 @@ namespace BeerService.Data.Migrations
                     b.Property<string>("Harmonizacao")
                         .HasColumnType("text");
 
+                    b.Property<string>("Imagem")
+                        .HasColumnType("text");
+
                     b.Property<string>("Ingredientes")
                         .HasColumnType("text");
 
@@ -55,35 +58,6 @@ namespace BeerService.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cervejas");
-                });
-
-            modelBuilder.Entity("BeerService.Domain.Entities.Imagem", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Caminho")
-                        .HasColumnType("text");
-
-                    b.Property<Guid?>("CervejaId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Descricao")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CervejaId");
-
-                    b.ToTable("Imagens");
-                });
-
-            modelBuilder.Entity("BeerService.Domain.Entities.Imagem", b =>
-                {
-                    b.HasOne("BeerService.Domain.Entities.Cerveja", null)
-                        .WithMany("Imagens")
-                        .HasForeignKey("CervejaId");
                 });
 #pragma warning restore 612, 618
         }

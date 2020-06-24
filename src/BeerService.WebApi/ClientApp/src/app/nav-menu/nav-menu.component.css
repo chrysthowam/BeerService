@@ -4,6 +4,16 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+a.navbar-header {
+  background: #ba0c2f;
+  background: -webkit-gradient(linear, left top, right top, from(#ba0c2f), to(#451311));
+  background: linear-gradient(to right, #ba0c2f 0%, #451311 100%);
+  min-width: 1170px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
 html {
   font-size: 14px;
 }

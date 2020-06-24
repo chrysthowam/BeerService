@@ -9,11 +9,11 @@ namespace BeerService.Application.Services
     {
         internal IUnitOfWork UnitOfWork { get; set; }
         internal IMediatorHandler Bus { get; set; }
-        internal DomainNotificationHandler Notifications { get; set; }
+        internal NotificationHandler Notifications { get; set; }
 
-        public GenericAppService(IUnitOfWork iuow, IMediatorHandler bus, INotificationHandler<DomainNotification> notifications)
+        public GenericAppService(IUnitOfWork iuow, IMediatorHandler bus, INotificationHandler<Notification> notifications)
         {
-            Notifications = (DomainNotificationHandler)notifications;
+            Notifications = (NotificationHandler)notifications;
             UnitOfWork = iuow;
             Bus = bus;
         }

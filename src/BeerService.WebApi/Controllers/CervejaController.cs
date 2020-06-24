@@ -12,7 +12,7 @@ namespace BeerService.WebApi.Controllers
     {
         private readonly ICervejaAppService _cervejaAppService;
 
-        public CervejaController(INotificationHandler<DomainNotification> notifications,
+        public CervejaController(INotificationHandler<Notification> notifications,
             IMediatorHandler mediator, ICervejaAppService cervejaAppService) : base(notifications, mediator)
         {
             _cervejaAppService = cervejaAppService;
@@ -75,7 +75,7 @@ namespace BeerService.WebApi.Controllers
 
             var result = _cervejaAppService.ConsultarCerveja(dto);
 
-            return Response(result);
+            return Response(result, true);
         }
 
 

@@ -11,13 +11,13 @@ namespace BeerService.Domain.CommandHandlers
     {
         protected readonly IUnitOfWork _unitOfwork;
         protected readonly IMediatorHandler _bus;
-        protected readonly DomainNotificationHandler _notifications;
+        protected readonly NotificationHandler _notifications;
 
         public CommandHandler(IUnitOfWork unitOfWork, IMediatorHandler bus, 
-            INotificationHandler<DomainNotification> notifications)
+            INotificationHandler<Notification> notifications)
         {
             _unitOfwork = unitOfWork;
-            _notifications = (DomainNotificationHandler)notifications;
+            _notifications = (NotificationHandler)notifications;
             _bus = bus;
         }
 
@@ -25,7 +25,7 @@ namespace BeerService.Domain.CommandHandlers
         {
             foreach (var error in command.ValidationResult.Errors)
             {
-                await _bus.RaiseEvent(new DomainNotification(command.MessageType, error.ErrorMessage));
+                await _bus.RaiseEvent(new Notification(command.MessageType, error.ErrorMessage));
             }
         }
 
@@ -39,7 +39,7 @@ namespace BeerService.Domain.CommandHandlers
 
             await _unitOfwork.DisposeAsync();
 
-            await _bus.RaiseEvent(new DomainNotification("Commit", "Não foi possível salvar as alterações!"));
+            await _bus.RaiseEvent(new Notification("Commit", "Não foi possível salvar as alterações!"));
 
             return false;
         }

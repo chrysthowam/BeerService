@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HttpClient, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpResponse, HttpEvent } from "@angular/common/http";
 import { RetornoListarCerveja } from "./retorno-listar-cerveja";
 import { Cerveja } from "./cerveja";
 import { Retorno } from "./retorno";
@@ -67,6 +67,15 @@ export class CervejaService {
     return this.http.post<Retorno>(
       this.url + "file/upload", formData
     )
+  }
+
+  downloadImagem(arquivo: string): Observable<Retorno> {
+
+    return this.http.get<Retorno>(
+      this.url + "file/download", {
+        params: { arquivo }
+      }
+    );
   }
 
   editarCerveja(id: string, nome: string, descricao: string, harmonizacao: string,

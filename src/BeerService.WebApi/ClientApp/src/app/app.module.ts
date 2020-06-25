@@ -17,6 +17,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { CadastroCervejaComponent } from './cerveja/cadastro-cerveja/cadastro-cerveja.component';
 import { EdicaoCervejaComponent } from './cerveja/edicao-cerveja/edicao-cerveja.component';
+import { VisualizacaoCervejaComponent } from './cerveja/visualizacao-cerveja/visualizacao-cerveja.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { EdicaoCervejaComponent } from './cerveja/edicao-cerveja/edicao-cerveja.
     HomeComponent,
     FetchDataComponent,
     CadastroCervejaComponent,
-    EdicaoCervejaComponent
+    EdicaoCervejaComponent,
+    VisualizacaoCervejaComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { EdicaoCervejaComponent } from './cerveja/edicao-cerveja/edicao-cerveja.
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'cadastro-cerveja', component: CadastroCervejaComponent },
       { path: 'edicao-cerveja/:id', component: EdicaoCervejaComponent },
+      { path: 'visualizacao-cerveja/:id', component: VisualizacaoCervejaComponent },
     ])
   ],
   providers: [

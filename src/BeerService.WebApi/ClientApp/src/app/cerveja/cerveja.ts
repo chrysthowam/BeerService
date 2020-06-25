@@ -9,4 +9,5 @@ export class Cerveja{
   ingredientes: string;
   temperaturaInicial: number;
   temperaturaFinal: number;
+  imagem: string;
 }

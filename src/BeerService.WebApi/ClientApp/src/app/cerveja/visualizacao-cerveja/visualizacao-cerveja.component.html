@@ -1,0 +1,28 @@
+
+
+<h3>{{cerveja.nome}}</h3>
+
+<nz-divider></nz-divider>
+
+
+<table height="100%" width="100%">
+  <thead>
+    <tr>
+      <th>
+        <img [src]="imageToShow">
+      </th>
+      <th width="70%">
+        <p><b>Descrição:</b> {{cerveja.descricao}}</p>
+        <br />
+        <p><b>Harmonização:</b> {{cerveja.harmonizacao}}</p>
+        <br />
+        <br />
+        <p><b>Ingredientes:</b> {{cerveja.ingredientes}}</p>
+        <p><b>Coloração:</b> {{cerveja.cor}}</p>
+        <p><b>Categoria:</b> {{cerveja.categoria}}</p>
+        <p><b>Teor Alcoólico:</b> {{cerveja.teorAlcoolico}}% vol</p>
+        <p><b>Temperatura Ideal:</b> {{cerveja.temperaturaInicial}}-{{cerveja.temperaturaFinal}} ºC</p>
+      </th>
+    </tr>
+  </thead>
+</table>

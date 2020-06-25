@@ -76,6 +76,8 @@
       <td>{{ cerveja.temperaturaInicial }} - {{ cerveja.temperaturaFinal }}</td>
       <td>{{ cerveja.ingredientes }}</td>
       <td>
+        <a [routerLink]="['/visualizacao-cerveja',cerveja.id]">Visualizar</a>
+        <nz-divider nzType="vertical"></nz-divider>
         <a [routerLink]="['/edicao-cerveja',cerveja.id]">Editar</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a (click)="excluirCerveja(cerveja.id)">Excluir</a>

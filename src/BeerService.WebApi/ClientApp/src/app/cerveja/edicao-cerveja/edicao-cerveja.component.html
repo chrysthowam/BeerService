@@ -10,7 +10,7 @@
 <form id="formCadastro">
   <div class="form-group">
 
-    <nz-form-label nzRequired>E-mail</nz-form-label>
+    <nz-form-label nzRequired>Nome</nz-form-label>
     <input type="text" class="form-control" id="nomeCerveja" name="cerveja.nome" [(ngModel)]="cerveja.nome">
     <div [ngClass]="alertBox" role="alert" *ngFor="let mensagem of mensagensNome">{{ mensagem }}</div>
 

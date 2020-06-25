@@ -29,7 +29,7 @@ namespace BeerService.Domain.Core.Notifications
 
         public bool HasNotifications()
         {
-            return GetNotifications().Any();
+            return GetNotifications()?.Any() ?? false;
         }
 
         public void Dispose()

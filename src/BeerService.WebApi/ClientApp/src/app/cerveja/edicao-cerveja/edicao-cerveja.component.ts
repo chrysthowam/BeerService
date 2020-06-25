@@ -5,6 +5,7 @@ import { Errors } from "../errors";
 import { ActivatedRoute } from '@angular/router';
 import { Router } from "@angular/router"
 import { Cerveja } from '../cerveja';
+import { RetornoConsultarCerveja } from '../retorno-consultar-cerveja';
 
 @Component({
   selector: 'app-edicao-cerveja',
@@ -27,6 +28,11 @@ export class EdicaoCervejaComponent implements OnInit {
   public mensagensIngredientes: string[] = [];
   public mensagensBusiness: string[] = [];
 
+  public cores: string[] = ['', 'Palha', 'Amarelo', 'Ouro', 'Âmbar',
+    'Profundo âmbar', 'Cobre', 'Profundo cobre', 'Castanho',
+    'Castanho escuro', 'Castanho muito escuro', 'Preto', 'Preto opaco'];
+  corSelecionada: string = '';
+
   constructor(private cervejaService: CervejaService,
     private route: ActivatedRoute, private router: Router) { }
 
@@ -37,14 +43,18 @@ export class EdicaoCervejaComponent implements OnInit {
 
   consultarCerveja() {
     this.cervejaService.consultarCerveja(this.id)
-      .subscribe((cerveja: Cerveja) => {
+      .subscribe((retorno: RetornoConsultarCerveja) => {
 
-        this.cerveja = cerveja.cerveja;
+        this.cerveja = <Cerveja>retorno.cerveja;
+        this.corSelecionada = this.cerveja.cor;
 
        });
   }
 
   editarCerveja() {
+
+    this.cerveja.cor = this.corSelecionada;
+
     this.cervejaService.editarCerveja(this.cerveja.id, this.cerveja.nome, this.cerveja.descricao,
       this.cerveja.harmonizacao, this.cerveja.cor, this.cerveja.categoria, this.cerveja.teorAlcoolico,
       this.cerveja.ingredientes, this.cerveja.temperaturaInicial, this.cerveja.temperaturaFinal)

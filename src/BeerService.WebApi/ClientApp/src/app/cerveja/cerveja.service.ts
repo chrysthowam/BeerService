@@ -12,11 +12,20 @@ export class CervejaService {
 
   protected url: string = "https://localhost:44314/";
 
-  listarCervejas(): Observable<RetornoListarCerveja> {
-    return this.http.get<RetornoListarCerveja>(this.url + "cerveja/listar");
+  listarCervejas(nome: string, ingredientes: string, teorAlcoolico: string,
+    temperatura: string, cor: string): Observable<RetornoListarCerveja> {
+    return this.http.get<RetornoListarCerveja>(this.url + "cerveja/listar", {
+      params: {
+        nome,
+        ingredientes,
+        teorAlcoolico,
+        temperatura,
+        cor
+      }
+    });
   }
 
-  consultarCerveja(id: string): Observable<Cerveja> {
+  consultarCerveja(id: string): Observable<object> {
     return this.http.get<Cerveja>(this.url + "cerveja/" + id);
   }
 
@@ -31,7 +40,7 @@ export class CervejaService {
 
   cadastrarCerveja(nome: string, descricao: string, harmonizacao: string,
     cor: string, categoria: string, teorAlcoolico: number, ingredientes: string,
-    temperaturaInicial: number, temperaturaFinal: number): Observable<Retorno> {
+    temperaturaInicial: number, temperaturaFinal: number, imagem: string): Observable<Retorno> {
 
     return this.http.post<Retorno>(
       this.url + "cerveja/incluir",
@@ -44,9 +53,20 @@ export class CervejaService {
         "teorAlcoolico": teorAlcoolico,
         "ingredientes": ingredientes,
         "temperaturaInicial": temperaturaInicial,
-        "temperaturaFinal": temperaturaFinal
+        "temperaturaFinal": temperaturaFinal,
+        "imagem": imagem
       }
     );
+  }
+
+  uploadIMagem(imagem: File): Observable<Retorno> {
+
+    const formData: FormData = new FormData();
+    formData.append(imagem.name, imagem);
+
+    return this.http.post<Retorno>(
+      this.url + "file/upload", formData
+    )
   }
 
   editarCerveja(id: string, nome: string, descricao: string, harmonizacao: string,

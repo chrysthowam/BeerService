@@ -13,21 +13,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Infrastructure", "03 -
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Cross-Cutting", "04 - Cross-Cutting", "{8E58E395-EE6F-42FC-9C43-09BAA235C430}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.WebApi", "src\BeerService.WebApi\BeerService.WebApi.csproj", "{C436D239-265F-4F58-A8C4-9D26030674ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerService.WebApi", "src\BeerService.WebApi\BeerService.WebApi.csproj", "{C436D239-265F-4F58-A8C4-9D26030674ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.Application", "src\BeerService.Application\BeerService.Application.csproj", "{59417D3D-459E-445E-803D-6A8CACF67904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerService.Application", "src\BeerService.Application\BeerService.Application.csproj", "{59417D3D-459E-445E-803D-6A8CACF67904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.Application.DTO", "src\BeerService.Application.DTO\BeerService.Application.DTO.csproj", "{5571883E-96A5-49FD-8183-6DBA8C23BBD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerService.Application.DTO", "src\BeerService.Application.DTO\BeerService.Application.DTO.csproj", "{5571883E-96A5-49FD-8183-6DBA8C23BBD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.Domain", "src\BeerService.Domain\BeerService.Domain.csproj", "{D5CCBC83-2A9B-4E44-9C27-493AB307672B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerService.Domain", "src\BeerService.Domain\BeerService.Domain.csproj", "{D5CCBC83-2A9B-4E44-9C27-493AB307672B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.Data", "src\BeerService.Data\BeerService.Data.csproj", "{1E98818A-38EB-48FA-A2D1-4C754353FE43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerService.Data", "src\BeerService.Data\BeerService.Data.csproj", "{1E98818A-38EB-48FA-A2D1-4C754353FE43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.Domain.Core", "src\BeerService.Domain.Core\BeerService.Domain.Core.csproj", "{0419E9C3-8A53-46B2-90D1-098FCD1874CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerService.Domain.Core", "src\BeerService.Domain.Core\BeerService.Domain.Core.csproj", "{0419E9C3-8A53-46B2-90D1-098FCD1874CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.Bus", "src\BeerService.Bus\BeerService.Bus.csproj", "{886E2331-B289-4B1D-A5BF-E05C00C6DF5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerService.Bus", "src\BeerService.Bus\BeerService.Bus.csproj", "{886E2331-B289-4B1D-A5BF-E05C00C6DF5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.IoC", "src\BeerService.IoC\BeerService.IoC.csproj", "{126D10E0-FBE5-466D-AB0F-6C5021E2FFF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerService.IoC", "src\BeerService.IoC\BeerService.IoC.csproj", "{126D10E0-FBE5-466D-AB0F-6C5021E2FFF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerService.Domain.Tests", "src\BeerService.Domain.Tests\BeerService.Domain.Tests.csproj", "{15EA2291-39D8-4992-B73C-352FDCD78CFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{126D10E0-FBE5-466D-AB0F-6C5021E2FFF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{126D10E0-FBE5-466D-AB0F-6C5021E2FFF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{126D10E0-FBE5-466D-AB0F-6C5021E2FFF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15EA2291-39D8-4992-B73C-352FDCD78CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15EA2291-39D8-4992-B73C-352FDCD78CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15EA2291-39D8-4992-B73C-352FDCD78CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15EA2291-39D8-4992-B73C-352FDCD78CFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{0419E9C3-8A53-46B2-90D1-098FCD1874CC} = {AF168044-F898-4578-8E58-4470DE584232}
 		{886E2331-B289-4B1D-A5BF-E05C00C6DF5D} = {8E58E395-EE6F-42FC-9C43-09BAA235C430}
 		{126D10E0-FBE5-466D-AB0F-6C5021E2FFF5} = {8E58E395-EE6F-42FC-9C43-09BAA235C430}
+		{15EA2291-39D8-4992-B73C-352FDCD78CFA} = {AF168044-F898-4578-8E58-4470DE584232}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {968C5297-8E73-4D56-9663-747A61B54E45}

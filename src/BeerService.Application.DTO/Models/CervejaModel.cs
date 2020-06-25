@@ -16,5 +16,6 @@ namespace BeerService.Application.DTO.Models
         public string Ingredientes { get; set; }
         public decimal TemperaturaInicial { get; set; }
         public decimal TemperaturaFinal { get; set; }
+        public string Imagem { get; set; }
     }
 }

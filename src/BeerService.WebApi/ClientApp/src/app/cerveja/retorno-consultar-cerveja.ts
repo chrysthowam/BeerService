@@ -3,6 +3,6 @@ import { Errors } from "./errors";
 
 export class RetornoConsultarCerveja {
   success: boolean;
-  result: Cerveja;
+  cerveja: Cerveja;
   errors: Errors;
 }

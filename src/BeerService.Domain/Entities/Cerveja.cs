@@ -17,6 +17,24 @@ namespace BeerService.Domain.Entities
         public decimal TemperaturaFinal { get; set; }
         public string Imagem { get; set; }
 
+        public Cerveja() { }
+
+        public Cerveja(string nome, string descricao, string harmonizacao, 
+            string cor, string categoria, string ingredientes, decimal teorAlcoolico, 
+            decimal temperaturaInicial, decimal temperaturaFinal, string imagem)
+        {
+            Nome = nome;
+            Descricao = descricao;
+            Harmonizacao = harmonizacao;
+            Cor = cor;
+            Categoria = categoria;
+            Ingredientes = ingredientes;
+            TeorAlcoolico = teorAlcoolico;
+            TemperaturaInicial = temperaturaInicial;
+            TemperaturaFinal = temperaturaFinal;
+            Imagem = imagem;
+        }
+
         internal void Editar(string nome, string descricao, string harmonizacao, string cor, 
             string categoria, string ingredientes, decimal teorAlcoolico, 
             decimal temperaturaInicial, decimal temperaturaFinal)

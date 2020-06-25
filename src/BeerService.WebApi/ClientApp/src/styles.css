@@ -52,3 +52,7 @@ nz-footer {
 button {
   margin-left: 8px;
 }
+
+nz-select {
+  width: 200px;
+}

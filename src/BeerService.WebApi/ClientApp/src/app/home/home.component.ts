@@ -14,6 +14,16 @@ export class HomeComponent implements OnInit {
   public mensagens: string[];
   public alertBox: string;
 
+  public nome: string = "";
+  public ingredientes: string = "";
+  public teorAlcoolico: string = "";
+  public temperatura: string = "";
+
+  public cores: string[] = ['', 'Palha', 'Amarelo', 'Ouro', 'Âmbar',
+    'Profundo âmbar', 'Cobre', 'Profundo cobre', 'Castanho',
+    'Castanho escuro', 'Castanho muito escuro', 'Preto', 'Preto opaco'];
+  corSelecionada: string = '';
+
   private idExclusao: string; 
 
   isVisible = false;
@@ -30,7 +40,8 @@ export class HomeComponent implements OnInit {
   }
 
   fetchData() {
-    this.cervejaService.listarCervejas()
+    this.cervejaService.listarCervejas(this.nome, this.ingredientes,
+      this.teorAlcoolico.toString(), this.temperatura.toString(), this.corSelecionada)
       .subscribe(
         retorno => {
           this.cervejas = retorno.result.cervejas;

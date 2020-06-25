@@ -8,6 +8,7 @@ namespace BeerService.Domain.CommandValidators
         public EditarCervejaCommandValidator()
         {
             ValidateCerveja();
+            ValidateEditada();
         }
 
         private void ValidateCerveja()
@@ -15,6 +16,13 @@ namespace BeerService.Domain.CommandValidators
             RuleFor(x => x.Cerveja)
                 .NotEmpty()
                 .WithMessage("A cerveja informada para edição não foi encontrada!");
+        }
+
+        private void ValidateEditada()
+        {
+            RuleFor(x => x.CervejaEditada)
+                .NotEmpty()
+                .WithMessage("Não foram localizados dados para edição!");
         }
     }
 }

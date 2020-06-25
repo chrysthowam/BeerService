@@ -2,7 +2,53 @@
 
 <p>Listagem das cervejas cadastradas</p>
 
+<div style="margin:25px 0;"></div>
+
+<nz-divider nzText="Filtros"></nz-divider>
+
+<div nz-row>
+  <div nz-col nzSpan="8">
+    <nz-form-label>Nome</nz-form-label>
+    <input type="text" class="form-control" id="nome" [(ngModel)]="nome">
+  </div>
+  <div nz-col nzSpan="1"></div>
+  <div nz-col nzSpan="7">
+    <nz-form-label>Ingredientes</nz-form-label>
+    <input type="text" class="form-control" id="ingredientes" [(ngModel)]="ingredientes">
+  </div>
+  <div nz-col nzSpan="1"></div>
+  <div nz-col nzSpan="7">
+    <nz-form-label>Cor</nz-form-label>
+    <select class="form-control" name="corSelecionada" [(ngModel)]="corSelecionada">
+      <option *ngFor="let color of cores">{{color}}</option>
+    </select>
+  </div>
+</div>
+
+<div style="margin:15px 0;"></div>
+
+<div nz-row>
+  <div nz-col nzSpan="8">
+    <nz-form-label>Teor Alcoolico</nz-form-label>
+    <input type="number" class="form-control" id="teorAlcoolico" [(ngModel)]="teorAlcoolico">
+  </div>
+  <div nz-col nzSpan="1"></div>
+  <div nz-col nzSpan="7">
+    <nz-form-label> Temperatura</nz-form-label>
+    <input type="number" class="form-control" id="temperatura" [(ngModel)]="temperatura">
+  </div>
+  <div nz-col nzSpan="1"></div>
+  <div nz-col nzSpan="7">
+    <div style="margin:47px 0;"></div>
+    <button type="button" class="form-control" (click)="fetchData()">Filtrar</button>
+  </div>
+</div>
+
+<div style="margin:25px 0;"></div>
+
 <nz-divider></nz-divider>
+
+<div style="margin:25px 0;"></div>
 
 <p *ngIf="!cervejas"><em>Carregando...</em></p>
 

@@ -19,6 +19,7 @@ export class CadastroCervejaComponent {
   public ingredientes: string;
   public temperaturaInicial: number;
   public temperaturaFinal: number;
+  public imagem: string;
   public alertBox: string;
 
   public mensagensNome: string[] = [];
@@ -29,16 +30,33 @@ export class CadastroCervejaComponent {
   public mensagensIngredientes: string[] = [];
   public mensagensBusiness: string[] = [];
 
+  public cores: string[] = [ '', 'Palha', 'Amarelo', 'Ouro', 'Âmbar',
+    'Profundo âmbar', 'Cobre', 'Profundo cobre', 'Castanho',
+    'Castanho escuro', 'Castanho muito escuro', 'Preto', 'Preto opaco'];
+  corSelecionada: string = '';
+
+  fileToUpload: File = null;
+
   constructor(private cervejaService: CervejaService) { }
 
   cadastrarCerveja() {
+
+    this.cor = this.corSelecionada;
+
+    if (this.fileToUpload != undefined) {
+      this.imagem = this.fileToUpload.name;
+    }
+
     this.cervejaService.cadastrarCerveja(this.nome, this.descricao,
       this.harmonizacao, this.cor, this.categoria, this.teorAlcoolico,
-      this.ingredientes, this.temperaturaInicial, this.temperaturaFinal)
+      this.ingredientes, this.temperaturaInicial, this.temperaturaFinal,
+      this.imagem)
       .subscribe(
         () => {
           this.alertBox = 'alert alert-success';
           this.mensagensBusiness = ['Cerveja cadastrada com sucesso!'];
+
+          this.cervejaService.uploadIMagem(this.fileToUpload).subscribe();
         },
         (response: HttpErrorResponse) => {
           this.alertBox = 'alert alert-danger';
@@ -57,5 +75,9 @@ export class CadastroCervejaComponent {
           }
         }
       );
+  }
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
   }
 }

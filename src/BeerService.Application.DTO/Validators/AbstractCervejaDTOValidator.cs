@@ -46,5 +46,12 @@ namespace BeerService.Application.DTO.Validators
                 .NotEmpty()
                 .WithMessage("O campo \"Ingredientes\" é obrigatório!");
         }
+
+        protected void ValidateImagem()
+        {
+            RuleFor(x => x.Imagem)
+                .NotEmpty()
+                .WithMessage("O campo \"Imagem\" é obrigatório!");
+        }
     }
 }

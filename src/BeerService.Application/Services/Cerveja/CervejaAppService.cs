@@ -6,6 +6,7 @@ using BeerService.Domain.Commands;
 using BeerService.Domain.Core.Bus;
 using BeerService.Domain.Core.Notifications;
 using BeerService.Domain.Entities;
+using BeerService.Domain.Filter;
 using BeerService.Domain.Interfaces.UnitOfWork;
 using MediatR;
 using System.Collections.Generic;
@@ -63,13 +64,22 @@ namespace BeerService.Application.Services
 
         public ListarCervejasDTO.Retorno ListarCervejas(ListarCervejasDTO.Envio dto)
         {
-            var cervejas = _mapper.Map<List<CervejaModel>>(
-                UnitOfWork.CervejaRepository.GetListAll().ToList());
+            var query = UnitOfWork.CervejaRepository.GetListAll();
+            var filter = new CervejaFilter(query);
+            var cervejas = filter
+                .FiltrarNome(dto.Nome)
+                .FiltrarIngredientes(dto.Ingredientes)
+                .FiltrarCor(dto.Cor)
+                .FiltrarTemperatura(dto.Temperatura)
+                .FiltrarTeorAlcoolico(dto.TeorAlcoolico)
+                .Listar();
 
-            if (cervejas == null)
+            var retorno = _mapper.Map<List<CervejaModel>>(cervejas);
+
+            if (retorno == null)
                 Bus.RaiseEvent(new Notification("Search", "Nenhum registro localizado para os filtros informados!"));
 
-            return new ListarCervejasDTO.Retorno() { Cervejas = cervejas };
+            return new ListarCervejasDTO.Retorno() { Cervejas = retorno };
         }
     }
 }

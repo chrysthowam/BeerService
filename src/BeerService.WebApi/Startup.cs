@@ -5,6 +5,7 @@ using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,7 @@ namespace BeerService.WebApi
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddEntityFrameworkNpgsql().AddDbContext<MainContext>(opt =>
+            services.AddDbContext<MainContext>(opt =>
             {
                 opt.UseNpgsql(Configuration.GetConnectionString("MyWebApiConection"));
             });
@@ -41,6 +42,12 @@ namespace BeerService.WebApi
 
             services.AddMediatR(typeof(Startup));
             services.AddAutoMapperConfiguration();
+            services.Configure<FormOptions>(o => {
+                o.ValueLengthLimit = int.MaxValue;
+                o.MultipartBodyLengthLimit = int.MaxValue;
+                o.MemoryBufferThreshold = int.MaxValue;
+            });
+
             RegisterServices(services);
         }
 

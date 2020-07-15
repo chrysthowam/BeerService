@@ -1,23 +1,22 @@
 ﻿using BeerService.Domain.Core.Entities;
 using System;
-using System.Collections.Generic;
 
 namespace BeerService.Domain.Entities
 {
     public class Cerveja : Entity
     {
-        public string Nome { get; set; }
-        public string Descricao { get; set; }
-        public string Harmonizacao { get; set; }
-        public string Cor { get; set; }
-        public string Categoria { get; set; }
-        public string Ingredientes { get; set; }
-        public decimal TeorAlcoolico { get; set; }
-        public decimal TemperaturaInicial { get; set; }
-        public decimal TemperaturaFinal { get; set; }
-        public string Imagem { get; set; }
+        public string Nome { get; private set; }
+        public string Descricao { get; private set; }
+        public string Harmonizacao { get; private set; }
+        public string Cor { get; private set; }
+        public string Categoria { get; private set; }
+        public string Ingredientes { get; private set; }
+        public decimal TeorAlcoolico { get; private set; }
+        public decimal TemperaturaInicial { get; private set; }
+        public decimal TemperaturaFinal { get; private set; }
+        public string Imagem { get; private set; }
 
-        public Cerveja() { }
+        private Cerveja() { }
 
         public Cerveja(string nome, string descricao, string harmonizacao, 
             string cor, string categoria, string ingredientes, decimal teorAlcoolico, 
